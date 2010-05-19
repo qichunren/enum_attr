@@ -4,7 +4,8 @@
 = Usage
  In your model,for example in Post,you have a column named status(integer), 1 means normal, 2 means draft, 3 means deleted.
 Now,with enum_attr plugin,you just decalre:
-enum_attr :status, [ ["正常", 1, "normal"], ["草稿", 2, "draft"], ["已删除", 3, "deleted"] ]
+
+    enum_attr :status, [ ["正常", 1, "normal"], ["草稿", 2, "draft"], ["已删除", 3, "deleted"] ]
 
 with this declare, you have these code below:
 
