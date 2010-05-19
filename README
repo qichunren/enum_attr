@@ -1,0 +1,28 @@
+A rails plugin for active_record model
+keyword:数据字典
+
+==Usage
+ In your model,for example in Post,you have a column named status(integer), 1 means normal, 2 means draft, 3 means deleted.
+Now,with enum_attr plugin,you just decalre:
+enum_attr :status, [ ["正常", 1, "normal"], ["草稿", 2, "draft"], ["已删除", 3, "deleted"] ]
+
+with this declare, you have these code below:
+consts: 
+        STATUS_NORMAL = 1; STATUS_DRAFT = 2; STATUS_DELETED = 3
+        ENUMS_STATUS = [ ["正常", 1], ["草稿", 2], ["已删除", 3] ] # this is for select tag
+valitates:
+        validates_inclusion_of "status", :in => [1,2,3], :allow_nil => true
+methods:
+     # instant_method
+     def status_name
+       # ... return readable status name according to stauts value(integer)
+     end
+
+
+== Inspiration
+  Thanks Quakewang
+  http://quake.javaeye.com/blog/448235 
+
+== Copyright
+
+Copyright © 2010 Qichunren. See LICENSE for details. 
