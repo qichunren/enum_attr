@@ -53,3 +53,5 @@ end
     end
   end
 end
+
+Object.send :include, EnumAttr::Mixin
