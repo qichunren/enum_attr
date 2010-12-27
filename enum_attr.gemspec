@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
      "VERSION",
      "enum_attr.gemspec",
      "init.rb",
-     "lib/enum_attr.rb"
+     "lib/enum_attr.rb",
+     "rails/init.rb"
   ]
   s.homepage = %q{https://github.com/qichunren/enum_attr}
   s.rdoc_options = ["--charset=UTF-8"]
