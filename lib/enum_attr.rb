@@ -34,7 +34,7 @@ module EnumAttr
         scope "#{attr}_#{enum[2]}".to_sym, where("#{attr}=#{enum[1]}") 
         
         # TODO define_method such as "stauts_origin?"
-        define_method "#{attr}_#{enum}?" do
+        define_method "#{attr}_#{enum[2]}?" do
           attr == enum[1] 
         end 
         
