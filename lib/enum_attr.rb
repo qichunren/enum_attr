@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module EnumAttr
   module Mixin
     # for model Contract:
@@ -45,6 +47,10 @@ module EnumAttr
 ENUMS_#{attr.upcase} = enums.collect{|item| [item[0], item[1]]}
 
 validates_inclusion_of attr, :in => enums.map{|e| e[1].to_i}, :allow_nil => true
+
+def self.#{attr}_name_by(arg)
+  ENUMS_#{attr.upcase}.find{|option| option[1] == arg }[0]  
+end
 
 def #{attr}_name
   ENUMS_#{attr.upcase}.find{|option| option[1] == #{attr}}[0] unless #{attr}.nil?
