@@ -35,10 +35,16 @@ module EnumAttr
         # TODO: how to judge if there is active_record 3 gem here?
         scope "#{attr}_#{enum[2]}".to_sym, where("#{attr}=#{enum[1]}") 
         
-        # TODO define_method such as "stauts_origin?"
-        define_method "#{attr}_#{enum[2]}?" do
-          attr == enum[1] 
-        end 
+        # # TODO define_method such as "stauts_origin?"
+        # why does this get error result?
+        # define_method "#{attr}_#{enum[2]}?" do
+        #   attr == enum[1] 
+        # end             
+        class_eval(%Q{
+          def #{attr}_#{enum[2]}?
+            #{attr} == #{enum[1]}
+          end
+        })  
         
       end # end: enums.each
       
@@ -55,8 +61,11 @@ end
 def #{attr}_name
   ENUMS_#{attr.upcase}.find{|option| option[1] == #{attr}}[0] unless #{attr}.nil?
 end
-        })
+
+})
     end
+    
+    
   end
 end
 
