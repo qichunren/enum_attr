@@ -1,11 +1,10 @@
 # encoding: utf-8
-
 module EnumAttr
   module Mixin
     # for model Contract:
     # enum_attr :status, [['新建', 0, "origin"], ['整理中', 1, "collecting"], ["已上传", 2, "uploaded"]]
     # It generates these code for you:
-    # # status const                                     
+    # # status const 状态常量                                    
     # STATUS_ORIGIN = 0; STATUS_COLLECTING = 2; STATUS_UPLOADED = 3       
     #
     # # scopes for column status
@@ -16,7 +15,7 @@ module EnumAttr
     # # for view select
     # ENUMS_STATUS = [["新建", 0], ["整理中", 1], ["已上传", 2]]                    
     
-    # # validates
+    # # validates 包含验证
     # validates_inclusion_of "status", :in => [1, 2, 3], :allow_nil => true
     #   
     # # column_name instant method
@@ -55,7 +54,7 @@ ENUMS_#{attr.upcase} = enums.collect{|item| [item[0], item[1]]}
 validates_inclusion_of attr, :in => enums.map{|e| e[1].to_i}, :allow_nil => true
 
 def self.#{attr}_name_by(arg)
-  ENUMS_#{attr.upcase}.find{|option| option[1] == arg }[0]  
+  ENUMS_#{attr.upcase}.find{|option| option[1] == arg }[0] rescue ""
 end
 
 def #{attr}_name

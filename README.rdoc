@@ -23,6 +23,9 @@ methods:
      end
 
 
+= See more detail in spec test
+更多用法见spec/enum_spec.rb文件
+
 = Inspiration
   Thanks Quakewang
   http://quake.javaeye.com/blog/448235 
