@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{enum_attr}
-  s.version = "0.0.6"
+  s.version = "0.0.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["qichunren"]
-  s.date = %q{2010-12-28}
+  s.date = %q{2011-04-22}
   s.description = %q{A Rails plugin which brings easy-to-use enum-like functionality to ActiveRecord models (now compatible with rails 3, ruby 1.9 and jruby). .}
   s.email = %q{whyruby@gmail.com}
   s.extra_rdoc_files = [
@@ -23,15 +23,23 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "enum_attr.gemspec",
+     "enum_attr_test.sqlite3",
      "init.rb",
      "lib/enum_attr.rb",
-     "rails/init.rb"
+     "rails/init.rb",
+     "spec/database.yml",
+     "spec/enum_spec.rb",
+     "spec/spec_helper.rb"
   ]
   s.homepage = %q{https://github.com/qichunren/enum_attr}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{enum_attr is a Ruby gem to manage enum column for active_record.}
+  s.test_files = [
+    "spec/enum_spec.rb",
+     "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
