@@ -1,7 +1,6 @@
 # encoding: utf-8  
 require File.dirname(__FILE__) + "/spec_helper"    
 
-
 class Contract < ActiveRecord::Base
   enum_attr :status, [['新建', 0, "origin"], ['整理中', 1, "collecting"], ["已上传", 2, "uploaded"]]
 end

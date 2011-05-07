@@ -1,7 +1,7 @@
-# encoding: utf-8
-require 'rubygems'    
+# encoding: utf-8 
 require 'active_record'  
-require 'yaml'           
+require 'yaml'        
+require 'rspec'   
 require File.expand_path("../../lib/enum_attr", __FILE__)
 
 dbconfig = YAML::load(File.open(File.dirname(__FILE__) + "/database.yml"))    

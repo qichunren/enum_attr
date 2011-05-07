@@ -1,4 +1,6 @@
-# encoding: utf-8
+# encoding: utf-8 
+require 'active_record'  
+
 module EnumAttr
   module Mixin
     # for model Contract:
