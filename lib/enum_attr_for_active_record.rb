@@ -4,7 +4,7 @@ require 'active_record'
 
 module EnumAttr
   module MixinForActiveRecord 
-    extend EnumAttr::Mixin
+    include EnumAttr::Mixin
     
     def enum_attr(attr, enums)
       super(attr, enums)
