@@ -10,6 +10,17 @@ class Person
   
 end
 
+describe "Person emotion attribute method" do
+  it "should respond emotion method" do
+    person = Person.new
+    person.set_emotion(1)
+    person.should respond_to(:emotion)
+    person.should respond_to(:emotion=)
+    person.emotion.should == 1
+  end
+end
+
+
 describe "Person emotion_#value? method" do
   it "should return true or fals with emotion_#value? method" do
     person = Person.new
