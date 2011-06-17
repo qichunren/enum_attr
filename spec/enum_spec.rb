@@ -10,6 +10,10 @@ describe "EnumAttr" do
     Contract.delete_all
   end
   
+  it "should get superclass" do
+    Contract.superclass.should == ActiveRecord::Base
+  end
+  
   it "should get const" do
     Contract::STATUS_ORIGIN.should == 0
     Contract::STATUS_COLLECTING.should == 1
@@ -20,10 +24,10 @@ describe "EnumAttr" do
     Contract.should respond_to(:status_origin)
     Contract.should respond_to(:status_collecting)
     Contract.should respond_to(:status_uploaded)
-    Contract.create(:name => "contract 1", :status => 0)
-    Contract.create(:name => "contract 2", :status => 1)
-    Contract.create(:name => "contract 3", :status => 2)
-    Contract.create(:name => "contract 4", :status => 1)
+    Contract.create!(:name => "contract 1", :status => 0)
+    Contract.create!(:name => "contract 2", :status => 1)
+    Contract.create!(:name => "contract 3", :status => 2)
+    Contract.create!(:name => "contract 4", :status => 1)
     Contract.status_origin.first.name.should == "contract 1"
     Contract.status_collecting.count.should == 2    
   end
