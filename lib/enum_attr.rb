@@ -29,7 +29,8 @@ module EnumAttr
       attr = attr.to_s
       
       enums.each do |enum|
-        const_set("#{attr.upcase}_#{enum[2].upcase}", enum[1] )
+        atr = "#{attr.upcase}_#{enum[2].upcase}"
+        const_set(atr, enum[1] ) unless const_defined?(atr)
         
         # TODO: how to judge if there is active_record 3 gem here?
         scope "#{attr}_#{enum[2]}".to_sym, where("#{attr}=#{enum[1]}") 
