@@ -24,6 +24,7 @@ module EnumAttr
     # end
     #
     def enum_attr(attr, enums)
+      enums = enums.call if enums.is_a?(Proc)
       raise "The secone param must be a array!" unless enums.is_a? Array
       
       attr = attr.to_s
