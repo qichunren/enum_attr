@@ -1,2 +1,3 @@
 .svn
 pkg/*
+spec/enum_attr_test.sqlite3
