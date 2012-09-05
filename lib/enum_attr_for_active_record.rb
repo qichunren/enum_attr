@@ -1,17 +1,17 @@
-# encoding: utf-8 
+# encoding: utf-8
 require 'enum_attr_base'
-require 'active_record'  
+require 'active_record'
 
 module EnumAttr
-  module MixinForActiveRecord 
+  module MixinForActiveRecord
     include EnumAttr::Mixin
-    
+
     def enum_attr(attr, enums)
       super(attr, enums)
-      enums.each do |enum|      
+      enums.each do |enum|
         scope "#{attr}_#{enum[2]}".to_sym, where("#{attr}=#{enum[1]}")
       end # end: enums.each
-      
+
       self.class_eval(%Q{
 validates_inclusion_of attr, :in => enums.map{|e| e[1].to_i}, :allow_nil => true
 def attr
