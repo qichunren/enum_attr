@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{enum_attr}
-  s.version = "0.0.7"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["qichunren"]
-  s.date = %q{2011-04-22}
+  s.date = %q{2012-09-05}
   s.description = %q{A Rails plugin which brings easy-to-use enum-like functionality to ActiveRecord models (now compatible with rails 3, ruby 1.9 and jruby). .}
   s.email = %q{whyruby@gmail.com}
   s.extra_rdoc_files = [
@@ -23,13 +23,11 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "enum_attr.gemspec",
-     "enum_attr_test.sqlite3",
      "init.rb",
      "lib/enum_attr.rb",
-     "rails/init.rb",
-     "spec/database.yml",
-     "spec/enum_spec.rb",
-     "spec/spec_helper.rb"
+     "lib/enum_attr_base.rb",
+     "lib/enum_attr_for_active_record.rb",
+     "rails/init.rb"
   ]
   s.homepage = %q{https://github.com/qichunren/enum_attr}
   s.rdoc_options = ["--charset=UTF-8"]
