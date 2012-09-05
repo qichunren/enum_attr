@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'enum_attr_base'
-require 'active_record'
+require "active_record"
 
 module EnumAttr
   module MixinForActiveRecord
@@ -26,5 +26,6 @@ end
     end # end def
   end
 end
+
 
 ::ActiveRecord::Base.send :extend, EnumAttr::MixinForActiveRecord

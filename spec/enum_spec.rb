@@ -1,5 +1,28 @@
 # encoding: utf-8
 require File.dirname(__FILE__) + "/spec_helper"
+require "active_record"
+
+
+dbconfig = YAML::load(File.open(File.dirname(__FILE__) + "/database.yml"))
+ActiveRecord::Base.establish_connection(dbconfig)
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+#migrations
+class CreateAllTables < ActiveRecord::Migration
+  def self.up
+    create_table(:contracts) do |t|
+      t.string :name
+      t.integer :status
+    end
+  end
+end
+
+RSpec.configure do |config|
+  config.before :all do
+    CreateAllTables.up unless ActiveRecord::Base.connection.table_exists? 'contracts'
+  end
+end
+
 
 class Contract < ActiveRecord::Base
   enum_attr :status, [['新建', 0, "origin"], ['整理中', 1, "collecting"], ["已上传", 2, "uploaded"]]
