@@ -12,8 +12,9 @@ module EnumAttr
         scope "#{attr}_#{enum[2]}".to_sym, where("#{attr}=#{enum[1]}")
       end # end: enums.each
 
+      validates_inclusion_of attr, :in => enums.map{|e| e[1] }, :allow_nil => true
+
       self.class_eval(%Q{
-validates_inclusion_of attr, :in => enums.map{|e| e[1].to_i}, :allow_nil => true
 def attr
   read_attribute(attr.to_sym)
 end
