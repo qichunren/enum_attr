@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{enum_attr}
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["qichunren"]
-  s.date = %q{2012-09-05}
+  s.date = %q{2012-09-17}
   s.description = %q{A Rails plugin which brings easy-to-use enum-like functionality to ActiveRecord models (now compatible with rails 3, ruby 1.9 and jruby). .}
   s.email = %q{whyruby@gmail.com}
   s.extra_rdoc_files = [
